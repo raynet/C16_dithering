@@ -1,0 +1,10 @@
+
+body {
+    background: rgb(128,128,128);
+}
+
+.card {
+    border: 1px solid black;
+    float: left;
+    margin: 16px;
+}
