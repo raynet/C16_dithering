@@ -1,4 +1,5 @@
 <?php   
+include('settings.php');
 header('Content-Type: text/html; charset=utf-8');
 $image = false;
 
@@ -16,11 +17,6 @@ class YUV
 	public $V;
 }
 
-
-$cx = 320;
-$dx = 2;
-$cy = 200;
-$dy = 1;
 
 $pal = json_decode(file_get_contents('palette.json'),true);
 
@@ -80,11 +76,14 @@ if (isset($_REQUEST['image'])) {
 </script>
 </head>
 <body>
-    <form action="yuv.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="upload" id="upload">
-        <input type="submit" value="Upload Image" name="submit">
-    </form>
+    <div id="menu">
+        <form action="yuv.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="upload" id="upload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+        <p>[ <a href="index.php">Back</a> ]</p>
+    </div>
     <?php
     if ($image) {
         list($xo, $yo, $type, $attr) = getimagesize("images/$image.png");
